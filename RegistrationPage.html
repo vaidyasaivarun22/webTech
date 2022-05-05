@@ -1,0 +1,105 @@
+<html>
+<head>
+    <title>
+        Registration Page
+    </title>
+</head>
+<body text="black">
+        <tt>
+            <hr size="50px" width="625" align="center" noshade color="aqua">
+            <div class="test" style="padding-left: 450px;">
+                <form name="login" method="post" action="" style="text-align: justify;">
+                    <fieldset style="display: inline-block;">
+                        <legend>
+                            <h3>Registration</h3>
+                        </legend>
+                        UserName: &nbsp;&nbsp;<input type="text" id="iname" placeholder="Atleast 6 characters long" ></br><br>
+                        Password: &nbsp;&nbsp;<input type="password"  placeholder="Enter atleast 6 char" name="upass"></br><br>
+                        E-mailid: &nbsp;&nbsp;<input type="email" placeholder="jhon@gmail.com" id="email"><br><br>
+                        Phone : &nbsp;&nbsp;&nbsp;&nbsp;<input id="phone" type="text" placeholder="Exact 10 number length"><br><br>
+                        Sex:&emsp;  <input type="radio" id="male" name="male" value="Male">
+                        <label for="male">Male</label>&nbsp;<input type="radio" id="female" name="male" value="Female">
+                        <label for="female">Female</label><br><br>
+                        DOB:&emsp;&emsp;<input type="date"><br><br>
+                        Languages Known:<br><input type="checkbox" id="English" name="English" value="english">
+                                        <label for="English">English</label><br>
+                                        <input type="checkbox" id="Hindi" name="Hindi" value="hindi">
+                                        <label for="Hindi">Hindi</label><br>
+                                        <input type="checkbox" id="Telugu" name="Telugu" value="telugu">
+                                        <label for="Telugu">Telugu</label><br><br>
+                        
+                        ADDRESS: <textarea id="txt" name="txt" rows="5" cols="20" placeholder="Enter your address here"></textarea><br><br>
+                        <input type="submit" value="submit" onclick="Validate()">
+                        <input type="reset" value="reset">
+                    </fieldset>
+                </form>
+            </div>
+            <hr size="50px" width="625" align="center" noshade color="aqua">
+        </tt>
+    <script language="javascript">
+        function Validate() {
+            // var name = document.forms[0].elements["uname"].value;
+            // or
+            // var name = document.login.uname.value;
+            // OR
+            // var name = document.getElementById("iname").value;
+            // or
+
+            //Valiadtion for password(only the length is checked here)
+            var pass = document.forms[0].elements["ipass"].value;
+            //Validation for name...(should start with a letter and can contain any number at last)
+            var name = document.forms[0].elements["iname"].value;
+            var p1 = new RegExp("^[a-z A-Z]+[^0-9]+$");
+            //Validation for phone number...(length is exact 10 digits length)
+            var p2 = new RegExp("^[0-9]+$");
+            var number = document.getElementById("phone").value;
+            //Validation for email id
+            var p3 = /^[a-zA-Z_.-]+[0-9]*([@]{1})+[a-z-]+([.]{1})+[a-z]+$/ ;
+            var em = document.getElementById("email").value;
+
+            if (name == "") {
+                alert("Name must be filled out");
+            }
+            else if(!p1.test(name))
+            {
+                alert("pattern mismatch enter a valid name of only characters");
+                if(name.length < 6)
+                    alert(" name should be atleast 6 characters length and only contain characters ");
+            }
+            else if(pass.length < 6)
+            {
+                alert("password must be atleast 6 characters long");
+            }
+			else if(number == "") {
+				alert("phone number should be exact 10 digits check once again");
+			}
+			else if (!p2.test(number))
+            {
+                alert("The phone number should only contain digits");
+                if( number.length != 10)
+                    alert("Your phone number should be exact 10 digits");
+            }
+            else if(!p3.test(em))
+            {
+                alert("The mail id is not a valid one find it and replace");
+            }
+			else{
+				// alert(p2.test(number));
+				// alert(number.length);
+				alert("Registration is successfull");		
+			}
+        }
+    </script>
+</body>
+
+</html>
+
+<!-- 5) REGISTRATION PAGE: Create a “registration form “with the following fields 
+1) Name (Text field)
+2) Password (password field) 
+3) E-mail id (text field) 
+4) Phone number (text field)
+5) Sex (radio button)
+6) Date of birth (3 select boxes) 
+7) Languages known (check boxes – English, Telugu, Hindi, Tamil) 
+8) Address (text area)  -->

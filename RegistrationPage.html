@@ -44,7 +44,7 @@
             // or
 
             //Valiadtion for password(only the length is checked here)
-            var pass = document.forms[0].elements["ipass"].value;
+            var pass = document.forms[0].elements["upass"].value;
             //Validation for name...(should start with a letter and can contain any number at last)
             var name = document.forms[0].elements["iname"].value;
             var p1 = new RegExp("^[a-z A-Z]+[^0-9]+$");
@@ -56,13 +56,15 @@
             var em = document.getElementById("email").value;
 
             if (name == "") {
-                alert("Name must be filled out");
+            alert("Name must be filled out");
+            }
+            else if(name.length < 6)
+            {
+                alert(" name should be atleast 6 characters length and only contain characters ");
             }
             else if(!p1.test(name))
             {
                 alert("pattern mismatch enter a valid name of only characters");
-                if(name.length < 6)
-                    alert(" name should be atleast 6 characters length and only contain characters ");
             }
             else if(pass.length < 6)
             {
@@ -74,8 +76,10 @@
 			else if (!p2.test(number))
             {
                 alert("The phone number should only contain digits");
-                if( number.length != 10)
-                    alert("Your phone number should be exact 10 digits");
+            }
+            else if( number.length != 10)
+            {
+                alert("Your phone number should be exact 10 digits");
             }
             else if(!p3.test(em))
             {

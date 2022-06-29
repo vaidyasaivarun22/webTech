@@ -19,24 +19,14 @@
 </body>
 <script language="javascript">
     function Validate1() {
-        // var name = document.forms[0].elements["uname"].value;
-        // or
-        // var name = document.login.uname.value;
-        // OR
-        // var name = document.getElementById("iname").value;
-        // or
 
-        //Valiadtion for password(only the length is checked here)
+        
         var pass = document.forms[0].elements["upass"].value;
-        //Validation for name...(should start with a letter and can contain any number at last)
+        
         var name = document.forms[0].elements["iname"].value;
         var p1 = new RegExp("^[a-z A-Z]+[^0-9]+$");
         //Validation for phone number...(length is exact 10 digits length)
         var p2 = new RegExp("^[0-9]+$");
-        // var number = document.getElementById("phone").value;
-        //Validation for email id
-        // var p3 = /^[a-zA-Z_.-]+[0-9]*([@]{1})+[a-z-]+([.]{1})+[a-z]+$/ ;
-        // var em = document.getElementById("email").value;
 
         if (name == "") {
             alert("Name must be filled out");
@@ -51,22 +41,7 @@
         {
             alert("password must be atleast 6 characters long");
         }
-        // else if(number == "") {
-        //     alert("phone number should be exact 10 digits check once again");
-        // }
-        // else if (!p2.test(number))
-        // {
-        //     alert("The phone number should only contain digits");
-        //     if( number.length != 10)
-        //         alert("Your phone number should be exact 10 digits");
-        // }
-        // else if(!p3.test(em))
-        // {
-        //     alert("The mail id is not a valid one find it and replace");
-        // }
         else{
-            // alert(p2.test(number));
-            // alert(number.length);
             alert("Login successfull !!!!");		
         }
     }
